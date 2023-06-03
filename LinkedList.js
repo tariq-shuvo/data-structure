@@ -92,12 +92,15 @@ class LinkedList{
         this.head = this.tail;
         this.tail = temp;
 
-        // for(let i = 0; i < this.length; i++){
-        //     let reverseValue = this.get(i);
-        //     console.log(reverseValue);
-        //     // reverseValue.next = this.tail;
-        //     // headTemp.next = reverseValue;
-        // }
+        let next = temp.next;
+        let prev = null;
+        
+        for(let i = 0; i < this.length; i++){
+            next = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = next;
+        }
     }
 
     pop(){
@@ -157,8 +160,8 @@ linkedListObj.push(40);
 // linkedListObj.remove(40);
 // linkedListObj.pop();
 linkedListObj.reverse();
-// linkedListObj.show();
+linkedListObj.show();
 // linkedListObj.shift();
 // linkedListObj.unshift(3);
 // console.log(linkedListObj.get(2));
-// console.log(linkedListObj);
+console.log(linkedListObj);
